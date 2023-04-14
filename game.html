@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles/styles.css">
+        <title>Crystal Snatcher by Pavlo Charnyi</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="leftBar">
+                <h1 class="logo">The Crystal Snatcher</span></h1>
+                <div class="playerInfo">
+                    <h2>
+                        <span id="userNameField"></span>
+                    </h2>
+                    <div>
+                        <img class="heroImage" src="./images/alarak.png" alt="Hero Image">
+                    </div>
+                    <div>
+                        <div class="playerInfo__gamedata">Level Score: 
+                            <span id="userLevelScoreField"></span>
+                        </div>
+                        <div class="playerInfo__gamedata">Total Score: 
+                            <span id="userTotalScoreField"></span>
+                        </div> 
+                    </div>
+               
+                    <div class="buttons">
+                        <button class="button__action" id="startGameBtn">Start</button>
+                        <button class="button__action" id="stopGameBtn">Stop</button>
+                    </div>
+                </div>
+            </div>
+            <div class="rightBar">
+                <div class="topBar">
+                    <div class="topBar__data" >Level: <span id="levelNumber"></span></div>
+                    <div class="topBar__data" >Target: <span id="levelTarget"></span></div>
+                    <div class="topBar__data" >Enemy: <span id="enemyName"></span></div>
+                    <div class="topBar__data" >Score: <span id="enemyScore"></span></div>
+                    <div class="topBar__data" >Total Score: <span id="enemyTotalScore"></span></div>
+                </div>
+                <div class="gameField">
+                    <div class="enemyContainer" id="enemy">
+                        <img src="./images/zagara.png" class="enemyImage" alt="Enemy Image" />
+                    </div>
+                    <div class="crystalContainer" id="crystal">
+                        <img src="./images/crystal.png" class="crystalImage" alt="Crystal Image" />
+                    </div>                    
+                </div>
+            </div>
+            <div class="screenBlocker" id="screenBlocker">
+                <div class="message__window" id="messageWindow">
+                    <h1 id="message__title"></h1>
+                    <p id="message__userName"></p>
+                    <p id="message__user__score"></p>
+                    <p id="message__enemyName"></p>
+                    <p id="message__enemy__score"></p>
+                    <button class="button__action" id="messageButton">Close</button>
+                </div>
+                <div class="message__window__onStart" id="onStartMessage">
+                    <h1 id="onStartMessageTitle"></h1>
+                    <p id="onStartMessageText"></p>
+                    <button class="button__action" id="onStartMessageButton">Close</button>
+                </div>
+            </div>
+        </div>
+        <script src="./js/main.js">
+        </script>
+    </body>
+</html>

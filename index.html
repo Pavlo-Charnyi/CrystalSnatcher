@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/index.css">
+    <title>Create game account</title>
+</head>
+<body>
+    <div class="formContainer">
+        <h1>The Crystal Snatcher</h1>
+        <h3>Create game account</h3>
+          <form>
+              <input type="text" id="name" placeholder="Name or Nickname" required pattern="[A-Za-z0-9\s]+" />
+              <input type="email" id="email" placeholder="Email" required />
+              <span id="error"></span>
+              <button
+                  class="submitBtn"
+                  type="submit"
+                  onclick="register(event)">
+                  Register
+              </button>
+
+          </form>
+      </div>
+      <footer class="footer">
+          <h3>Developed by Pavlo Charnyi</h3>
+      </footer>
+      <script>
+        function register(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const nameErrorMessage = 'Please enter a valid name (letters, numbers and spaces only)';
+            const emailErrorMessage = 'Please enter a valid email address (like \'mymail@gmail.com\')';
+            const nameField = 'input[type=text]';
+            const emailField = 'input[type=email]';
+
+            //shows error message and highlights the field with error
+            function invalidInput(message, field){
+                    let error = document.querySelector('#error')
+                    error.textContent = message;
+                    error.style.visibility = 'visible'
+                    let nameInput = document.querySelector(field)
+                    nameInput.classList.add('error')
+                    nameInput.addEventListener('click', function(){
+                        nameInput.classList.remove('error')
+                        error.style.visibility = 'hidden'
+                    })
+                }
+            // Validate the name input using a regular expression
+            const nameRegex = /^[A-Za-z0-9\s]+$/;
+            if (!nameRegex.test(name)) {
+                invalidInput(nameErrorMessage, nameField)
+                return;
+            }
+
+            // Validate the email input using HTML5 built-in validation
+            if (!document.getElementById('email').checkValidity()) {
+                invalidInput(emailErrorMessage, emailField)
+                return;
+            }
+
+            // Save the registration data to localStorage
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+
+            // Redirect the user to the game page
+            window.location.href = 'game.html';
+        }
+    </script>
+</body>
+</html>
